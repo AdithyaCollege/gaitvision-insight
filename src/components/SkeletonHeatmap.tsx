@@ -35,24 +35,29 @@ function heatColor(score: number) {
 }
 
 export function SkeletonHeatmap() {
-  const byId = Object.fromEntries(joints.map((j) => [j.id, j]));
+  const byId = new Map(joints.map((j) => [j.id, j]));
 
   return (
     <div>
       <svg viewBox="0 0 200 285" className="mx-auto h-72 w-full">
-        {bones.map(([a, b]) => (
-          <line
-            key={`${a}-${b}`}
-            x1={byId[a].x}
-            y1={byId[a].y}
-            x2={byId[b].x}
-            y2={byId[b].y}
-            stroke="currentColor"
-            className="text-border"
-            strokeWidth={3}
-            strokeLinecap="round"
-          />
-        ))}
+        {bones.map(([a, b]) => {
+          const ja = byId.get(a);
+          const jb = byId.get(b);
+          if (!ja || !jb) return null;
+          return (
+            <line
+              key={`${a}-${b}`}
+              x1={ja.x}
+              y1={ja.y}
+              x2={jb.x}
+              y2={jb.y}
+              stroke="currentColor"
+              className="text-border"
+              strokeWidth={3}
+              strokeLinecap="round"
+            />
+          );
+        })}
         {joints.map((j) => (
           <Tooltip key={j.id}>
             <TooltipTrigger asChild>
