@@ -112,7 +112,7 @@ function AnalysisPage() {
           {/* Column 1 */}
           <section className="clinical-card flex flex-col p-5">
             <CardTitle
-              title="Synchronized Video &amp; Spatial Attention"
+              title="Synchronized Video & Spatial Attention"
               tip="Overlays are rendered from the same downsampled T×224×224 tensor used for inference."
             />
 
@@ -258,7 +258,7 @@ function AnalysisPage() {
             </div>
 
             <div className="clinical-card flex flex-1 flex-col p-5">
-              <CardTitle title="Clinical Summary &amp; Physician Notes" />
+              <CardTitle title="Clinical Summary & Physician Notes" />
               <p className="mt-3 rounded-lg border border-border bg-muted/50 p-3 text-xs leading-relaxed text-foreground">
                 Key findings indicate asymmetric temporal attention during the Midstance phase, localized
                 predominantly in the right knee and ankle joint regions. Reduced right terminal-stance
