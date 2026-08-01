@@ -28,25 +28,24 @@ const data = Array.from({ length: 101 }, (_, i) => {
 
 export function TemporalAttentionChart() {
   return (
-    <div className="h-56 w-full">
+    <div className="relative h-56 w-full">
+      <div className="pointer-events-none absolute inset-y-2 right-2 left-8 flex overflow-hidden rounded-sm">
+        {gaitPhases.map((p) => (
+          <div
+            key={p.name}
+            style={{ width: `${p.end - p.start}%`, background: p.color }}
+            className="h-full opacity-80"
+          />
+        ))}
+      </div>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -18, bottom: 0 }}>
           <defs>
             <linearGradient id="attn" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={0.35} />
-              <stop offset="100%" stopColor="var(--color-primary)" stopOpacity={0.02} />
+              <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="var(--color-primary)" stopOpacity={0.03} />
             </linearGradient>
           </defs>
-          {gaitPhases.map((p) => (
-            <ReferenceArea
-              key={p.name}
-              x1={p.start}
-              x2={p.end}
-              fill={p.color}
-              fillOpacity={0.7}
-              strokeOpacity={0}
-            />
-          ))}
           <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
           <XAxis
             dataKey="frame"
