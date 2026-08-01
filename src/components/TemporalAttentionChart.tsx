@@ -2,7 +2,6 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
-  ReferenceArea,
   ResponsiveContainer,
   Tooltip as RTooltip,
   XAxis,
@@ -29,7 +28,7 @@ const data = Array.from({ length: 101 }, (_, i) => {
 export function TemporalAttentionChart() {
   return (
     <div className="relative h-56 w-full">
-      <div className="pointer-events-none absolute inset-y-2 right-2 left-8 flex overflow-hidden rounded-sm">
+      <div className="pointer-events-none absolute top-2 right-2 bottom-7 left-8 flex overflow-hidden rounded-sm">
         {gaitPhases.map((p) => (
           <div
             key={p.name}
