@@ -74,6 +74,7 @@ export function TemporalAttentionChart() {
             stroke="var(--color-primary)"
             strokeWidth={2}
             fill="url(#attn)"
+            isAnimationActive={false}
           />
         </AreaChart>
       </ResponsiveContainer>
