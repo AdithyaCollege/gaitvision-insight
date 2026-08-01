@@ -28,7 +28,7 @@ const data = Array.from({ length: 101 }, (_, i) => {
 export function TemporalAttentionChart() {
   return (
     <div className="relative h-56 w-full">
-      <div className="pointer-events-none absolute top-2 right-2 bottom-7 left-8 flex overflow-hidden rounded-sm">
+      <div className="pointer-events-none absolute top-2 right-2 bottom-7 left-8 z-0 flex overflow-hidden rounded-sm">
         {gaitPhases.map((p) => (
           <div
             key={p.name}
@@ -37,6 +37,7 @@ export function TemporalAttentionChart() {
           />
         ))}
       </div>
+      <div className="relative z-10 h-full w-full">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -18, bottom: 0 }}>
           <defs>
