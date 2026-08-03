@@ -19,12 +19,13 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { title: "Patients List", url: "/", icon: Users },
+  { title: "Patients List", url: "/patients", icon: Users },
   { title: "New Gait Scan", url: "/", icon: Video },
-  { title: "Analytical History", url: "/analysis", icon: History },
-  { title: "System Metrics", url: "/analysis", icon: Gauge },
-  { title: "Settings", url: "/analysis", icon: Settings },
+  { title: "Analytical History", url: "/history", icon: History },
+  { title: "System Metrics", url: "/metrics", icon: Gauge },
+  { title: "Settings", url: "/settings", icon: Settings },
 ];
+
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
