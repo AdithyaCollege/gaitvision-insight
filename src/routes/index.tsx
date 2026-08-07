@@ -30,17 +30,17 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gait Video Intake — GaitVision AI Clinical Assessment" },
+      { title: "GaitVision AI Clinical Assessment" },
       {
         name: "description",
         content:
           "Upload RGB gait videos and capture patient intake metadata for explainable gait abnormality localization.",
       },
-      { property: "og:title", content: "Gait Video Intake — GaitVision AI" },
+      { property: "og:title", content: "GaitVision AI Clinical Assessment" },
       {
         property: "og:description",
         content:
-          "Clinical workspace for RGB gait video upload, walk-test conditions and explainable analysis.",
+          "Upload RGB gait videos and capture patient intake metadata for explainable gait abnormality localization.",
       },
     ],
   }),
