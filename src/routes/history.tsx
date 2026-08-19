@@ -130,8 +130,8 @@ const toneClass = {
 
 function HistoryPage() {
   const [openYears, setOpenYears] = useState<string[]>(["2026"]);
-  const [openQuarters, setOpenQuarters] = useState<string[]>(["2026Q3 (July – Sept)"]);
-  const [selected, setSelected] = useState<Leaf>(tree[0]!.quarters[0]!.scans[0]!);
+  const [openMonths, setOpenMonths] = useState<string[]>(["2026July"]);
+  const [selected, setSelected] = useState<Leaf>(tree[0]!.months[0]!.scans[0]!);
 
   const toggle = (arr: string[], set: (v: string[]) => void, key: string) =>
     set(arr.includes(key) ? arr.filter((k) => k !== key) : [...arr, key]);
