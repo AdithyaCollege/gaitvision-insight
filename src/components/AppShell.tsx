@@ -40,6 +40,8 @@ const breadcrumbs: Record<string, string[]> = {
 export function AppShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const showPatientContext = patientRoutes.includes(pathname);
+  const crumbs = breadcrumbs[pathname] ?? ["Admin", "Overview"];
 
   return (
     <TooltipProvider delayDuration={120}>
