@@ -64,12 +64,37 @@ export function TemporalAttentionChart({ axisLabels = false }: { axisLabels?: bo
             tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
             tickLine={false}
             axisLine={{ stroke: "var(--color-border)" }}
+            label={
+              axisLabels
+                ? {
+                    value: "Frame Index",
+                    position: "insideBottom",
+                    offset: -8,
+                    style: { fontSize: 11, fill: "var(--color-muted-foreground)" },
+                  }
+                : undefined
+            }
           />
           <YAxis
             domain={[0, 1]}
             tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
             tickLine={false}
             axisLine={false}
+            label={
+              axisLabels
+                ? {
+                    value: "Attention Weight",
+                    angle: -90,
+                    position: "insideLeft",
+                    offset: 8,
+                    style: {
+                      fontSize: 11,
+                      fill: "var(--color-muted-foreground)",
+                      textAnchor: "middle",
+                    },
+                  }
+                : undefined
+            }
           />
           <RTooltip
             contentStyle={{
