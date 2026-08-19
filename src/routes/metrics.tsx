@@ -21,6 +21,7 @@ import {
 } from "recharts";
 
 import { AppShell } from "@/components/AppShell";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/metrics")({
