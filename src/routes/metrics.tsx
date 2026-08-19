@@ -1,5 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, Clock, Database, HardDrive, Server, TrendingUp, Cpu } from "lucide-react";
+import {
+  Activity,
+  Clock,
+  Database,
+  HardDrive,
+  RotateCw,
+  ScrollText,
+  Server,
+  TrendingUp,
+  Cpu,
+} from "lucide-react";
 import {
   Area,
   AreaChart,
