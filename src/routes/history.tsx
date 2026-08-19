@@ -26,6 +26,9 @@ export const Route = createFileRoute("/history")({
   component: HistoryPage,
 });
 
+/** Patient currently held in the global header context. */
+const activePatient = { id: "#PX-80492", name: "Arthur Bennett" };
+
 type Leaf = {
   id: string;
   label: string;
@@ -35,79 +38,60 @@ type Leaf = {
   confidence: number;
   tone: "normal" | "warn" | "risk";
   localization: string;
+  spatial: string;
   summary: string;
 };
 
-const tree: { year: string; quarters: { name: string; scans: Leaf[] }[] }[] = [
+const tree: { year: string; months: { name: string; scans: Leaf[] }[] }[] = [
   {
     year: "2026",
-    quarters: [
+    months: [
       {
-        name: "Q3 (July – Sept)",
+        name: "July",
         scans: [
           {
             id: "s1",
-            label: "Patient #80492 — Spastic Gait",
-            patient: "#PX-80492 · Arthur Bennett",
+            label: "12 Jul · Spastic Gait",
+            patient: `${activePatient.id} · ${activePatient.name}`,
             date: "12 Jul 2026 · 09:41",
             dx: "Spastic",
             confidence: 0.78,
             tone: "risk",
             localization: "Right knee & ankle dorsiflexion",
+            spatial: "Pose graph — right knee joint, edge R-hip→R-knee",
             summary:
               "Sustained attention peaks during terminal stance with reduced knee flexion amplitude on the right limb. Circumduction pattern detected across 3 consecutive cycles.",
           },
           {
             id: "s2",
-            label: "Patient #80493 — Normal",
-            patient: "#PX-80493 · Marta Oyelaran",
-            date: "12 Jul 2026 · 11:05",
-            dx: "Normal",
-            confidence: 0.94,
-            tone: "normal",
-            localization: "Symmetric bilateral loading",
-            summary:
-              "Attention distributed evenly across heel strike and midstance. Step length variance within normative range (CV 2.8%).",
-          },
-          {
-            id: "s3",
-            label: "Patient #80488 — Parkinsonian",
-            patient: "#PX-80488 · Henrik Sørensen",
-            date: "11 Jul 2026 · 15:22",
-            dx: "Parkinsonian",
-            confidence: 0.69,
+            label: "03 Jul · Follow-up",
+            patient: `${activePatient.id} · ${activePatient.name}`,
+            date: "03 Jul 2026 · 11:05",
+            dx: "Spastic",
+            confidence: 0.71,
             tone: "warn",
-            localization: "Trunk & hip flexion, reduced arm swing",
+            localization: "Right ankle push-off deficit",
+            spatial: "Pose graph — right ankle joint, edge R-knee→R-ankle",
             summary:
-              "Shortened shuffling steps with high-frequency attention on the pelvis. Festination observed in the last 2 seconds of the walk test.",
+              "Mild improvement in stance symmetry following 4 weeks of physiotherapy. Attention still concentrated on the right ankle during push-off.",
           },
         ],
       },
       {
-        name: "Q2 (Apr – Jun)",
+        name: "May",
         scans: [
           {
-            id: "s4",
-            label: "Patient #80471 — Ataxic",
-            patient: "#PX-80471 · Claudia Ferrer",
-            date: "28 Jun 2026 · 10:12",
-            dx: "Ataxic",
-            confidence: 0.63,
-            tone: "warn",
-            localization: "Lateral trunk sway, wide base",
-            summary:
-              "Irregular step width with attention concentrated on the shoulders during swing phase, consistent with cerebellar involvement.",
-          },
-          {
-            id: "s5",
-            label: "Patient #80465 — Normal",
-            patient: "#PX-80465 · Ravi Chandrasekar",
+            id: "s3",
+            label: "14 May · Baseline",
+            patient: `${activePatient.id} · ${activePatient.name}`,
             date: "14 May 2026 · 08:30",
-            dx: "Normal",
-            confidence: 0.91,
-            tone: "normal",
-            localization: "No focal abnormality",
-            summary: "Baseline post-operative assessment. Cadence 108 steps/min, symmetry index 0.97.",
+            dx: "Spastic",
+            confidence: 0.66,
+            tone: "warn",
+            localization: "Bilateral knee flexion asymmetry",
+            spatial: "Pose graph — bilateral knees, trunk edge cluster",
+            summary:
+              "Baseline post-operative assessment. Cadence 96 steps/min, symmetry index 0.83.",
           },
         ],
       },
@@ -115,21 +99,22 @@ const tree: { year: string; quarters: { name: string; scans: Leaf[] }[] }[] = [
   },
   {
     year: "2025",
-    quarters: [
+    months: [
       {
-        name: "Q4 (Oct – Dec)",
+        name: "December",
         scans: [
           {
-            id: "s6",
-            label: "Patient #80402 — Hemiplegic",
-            patient: "#PX-80402 · Eileen Park",
+            id: "s4",
+            label: "02 Dec · Initial Scan",
+            patient: `${activePatient.id} · ${activePatient.name}`,
             date: "02 Dec 2025 · 13:47",
-            dx: "Hemiplegic",
-            confidence: 0.74,
-            tone: "risk",
-            localization: "Left hip hike & foot drop",
+            dx: "Normal",
+            confidence: 0.9,
+            tone: "normal",
+            localization: "No focal abnormality",
+            spatial: "Pose graph — uniform joint saliency",
             summary:
-              "Asymmetric attention weighting favouring the left limb during swing. Compensatory pelvic elevation detected.",
+              "Pre-injury reference walk test. Attention distributed evenly across heel strike and midstance.",
           },
         ],
       },
