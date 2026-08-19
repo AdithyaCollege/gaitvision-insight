@@ -1,5 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, Clock, Database, HardDrive, Server, TrendingUp, Cpu } from "lucide-react";
+import {
+  Activity,
+  Clock,
+  Database,
+  HardDrive,
+  RotateCw,
+  ScrollText,
+  Server,
+  TrendingUp,
+  Cpu,
+} from "lucide-react";
 import {
   Area,
   AreaChart,
@@ -11,6 +21,7 @@ import {
 } from "recharts";
 
 import { AppShell } from "@/components/AppShell";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/metrics")({
@@ -42,7 +53,7 @@ const kpis = [
   },
   {
     label: "Average AI Inference Time",
-    sub: "Per 120-frame clip",
+    sub: "Per 32-frame sequence",
     value: "4.2s",
     delta: "-0.6s vs last week",
     icon: Clock,
@@ -107,7 +118,7 @@ function MetricsPage() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {kpis.map((k) => (
             <div key={k.label} className="clinical-card p-5">
               <div className="flex items-start justify-between">
@@ -196,7 +207,7 @@ function MetricsPage() {
               {services.map((s) => (
                 <div
                   key={s.name}
-                  className="flex items-start gap-3 rounded-xl border border-border p-3.5"
+                  className="flex flex-wrap items-start gap-3 rounded-xl border border-border p-3.5"
                 >
                   <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                     <s.icon className="size-4" />
@@ -204,6 +215,16 @@ function MetricsPage() {
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium">{s.name}</p>
                     <p className="truncate text-xs text-muted-foreground">{s.detail}</p>
+                    {s.tone !== "ok" && (
+                      <div className="mt-2.5 flex flex-wrap gap-2">
+                        <Button variant="outline" size="sm" className="h-7 px-2.5 text-xs">
+                          <ScrollText className="size-3.5" /> View Logs
+                        </Button>
+                        <Button variant="outline" size="sm" className="h-7 px-2.5 text-xs">
+                          <RotateCw className="size-3.5" /> Restart Instance
+                        </Button>
+                      </div>
+                    )}
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     <span className="flex items-center gap-1.5">
