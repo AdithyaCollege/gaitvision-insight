@@ -57,12 +57,32 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <Separator orientation="vertical" className="hidden h-8 lg:block" />
 
-          <div className="hidden items-center gap-3 rounded-lg border border-border bg-muted/60 px-3 py-1.5 lg:flex">
-            <span className="size-2 rounded-full bg-normal-foreground" />
-            <span className="text-xs font-medium">Patient ID: #PX-80492</span>
-            <span className="text-xs text-muted-foreground">Age: 58</span>
-            <span className="text-xs text-muted-foreground">Sex: M</span>
-          </div>
+          {showPatientContext ? (
+            <div className="hidden items-center gap-3 rounded-lg border border-border bg-muted/60 px-3 py-1.5 lg:flex">
+              <span className="size-2 rounded-full bg-normal-foreground" />
+              <span className="text-xs font-medium">Patient ID: #PX-80492</span>
+              <span className="text-xs text-muted-foreground">Age: 58</span>
+              <span className="text-xs text-muted-foreground">Sex: M</span>
+            </div>
+          ) : (
+            <nav aria-label="Breadcrumb" className="hidden items-center gap-1.5 lg:flex">
+              {crumbs.map((c, i) => (
+                <span key={c} className="flex items-center gap-1.5">
+                  {i > 0 && <span className="text-xs text-muted-foreground">/</span>}
+                  <span
+                    className={cn(
+                      "text-xs",
+                      i === crumbs.length - 1
+                        ? "font-medium text-foreground"
+                        : "text-muted-foreground",
+                    )}
+                  >
+                    {c}
+                  </span>
+                </span>
+              ))}
+            </nav>
+          )}
 
           <div className="ml-auto flex items-center gap-2">
             <Button variant="outline" size="sm" className="hidden sm:inline-flex">
