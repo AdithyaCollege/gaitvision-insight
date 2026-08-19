@@ -178,13 +178,13 @@ function HistoryPage() {
                     </button>
 
                     {yOpen &&
-                      y.quarters.map((q) => {
+                      y.months.map((q) => {
                         const qKey = y.year + q.name;
-                        const qOpen = openQuarters.includes(qKey);
+                        const qOpen = openMonths.includes(qKey);
                         return (
                           <div key={qKey} className="ml-4 border-l border-border pl-2">
                             <button
-                              onClick={() => toggle(openQuarters, setOpenQuarters, qKey)}
+                              onClick={() => toggle(openMonths, setOpenMonths, qKey)}
                               className="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-sm hover:bg-muted"
                             >
                               <ChevronRight
