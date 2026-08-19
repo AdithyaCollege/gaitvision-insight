@@ -26,6 +26,16 @@ const navItems = [
   { title: "Settings", url: "/settings", icon: Settings },
 ];
 
+/** Routes that operate on a single patient keep the patient context bar. */
+const patientRoutes = ["/", "/analysis", "/history"];
+
+const breadcrumbs: Record<string, string[]> = {
+  "/metrics": ["Admin", "System Metrics"],
+  "/settings": ["Admin", "Settings"],
+  "/patients": ["Clinic", "Patients List"],
+};
+
+
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
