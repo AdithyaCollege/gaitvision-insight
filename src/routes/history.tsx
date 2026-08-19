@@ -248,17 +248,30 @@ function HistoryPage() {
               <p className="mb-1 text-xs font-medium text-muted-foreground">
                 Temporal attention preview
               </p>
-              <TemporalAttentionChart />
+              <TemporalAttentionChart axisLabels />
             </div>
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-border p-4">
                 <p className="text-xs font-medium text-muted-foreground">Clinical localization</p>
                 <p className="mt-1.5 text-sm font-medium">{selected.localization}</p>
               </div>
               <div className="rounded-xl border border-border p-4">
+                <p className="text-xs font-medium text-muted-foreground">
+                  Spatial Localization (Pose/Edge)
+                </p>
+                <p className="mt-1.5 text-sm font-medium">{selected.spatial}</p>
+                <div className="mt-3 flex h-20 items-center justify-center rounded-lg border border-dashed border-border bg-muted/40">
+                  <span className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                    <Waypoints className="size-3.5" /> Pose graph overlay renders here
+                  </span>
+                </div>
+              </div>
+              <div className="rounded-xl border border-border p-4 sm:col-span-2">
                 <p className="text-xs font-medium text-muted-foreground">Model</p>
-                <p className="mt-1.5 text-sm font-medium">GaitVision v2.4 · 120 frames @ 30 fps</p>
+                <p className="mt-1.5 text-sm font-medium">
+                  GaitVision v2.4 · 32-frame sequence @ 30 fps
+                </p>
               </div>
             </div>
 
