@@ -8,6 +8,8 @@ import {
   YAxis,
 } from "recharts";
 
+import { cn } from "@/lib/utils";
+
 export const gaitPhases = [
   { name: "Heel Strike", start: 0, end: 14, color: "oklch(0.95 0.05 160)" },
   { name: "Loading", start: 14, end: 32, color: "oklch(0.96 0.04 220)" },
