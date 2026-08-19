@@ -111,11 +111,15 @@ export function AppShell({ children }: { children: ReactNode }) {
           >
             <nav className="flex h-full flex-col gap-1 p-3">
               {navItems.map((item) => {
-                const active = pathname === item.url;
+                const active =
+                  item.url === "/"
+                    ? pathname === "/" || pathname === "/analysis"
+                    : pathname === item.url || pathname.startsWith(item.url + "/");
                 const link = (
                   <Link
                     key={item.title}
                     to={item.url}
+                    aria-current={active ? "page" : undefined}
                     className={cn(
                       "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-sidebar-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                       active && "bg-sidebar-accent text-sidebar-accent-foreground",
