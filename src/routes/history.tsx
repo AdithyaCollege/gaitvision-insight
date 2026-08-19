@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight, FileText, Folder, FolderOpen, ArrowUpRight } from "lucide-react";
+import { ChevronRight, FileText, Folder, FolderOpen, ArrowUpRight, Waypoints } from "lucide-react";
 import { useState } from "react";
 
 import { AppShell } from "@/components/AppShell";
