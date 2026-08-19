@@ -143,15 +143,20 @@ function HistoryPage() {
           <p className="text-xs font-medium tracking-wide text-primary uppercase">Archive</p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight">Analytical History</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            6 archived sessions across 2 years · organised by acquisition period
+            4 archived sessions for {activePatient.id} · grouped by year and month
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(300px,380px)_1fr]">
           <section className="clinical-card p-3">
-            <p className="px-2 py-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-              Session tree
-            </p>
+            <div className="flex items-center justify-between px-2 py-2">
+              <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                Session tree
+              </p>
+              <span className="rounded-full bg-primary-soft px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
+                Filtered · {activePatient.id}
+              </span>
+            </div>
             <div className="space-y-0.5">
               {tree.map((y) => {
                 const yOpen = openYears.includes(y.year);
