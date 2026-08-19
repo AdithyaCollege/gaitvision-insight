@@ -42,7 +42,7 @@ const kpis = [
   },
   {
     label: "Average AI Inference Time",
-    sub: "Per 120-frame clip",
+    sub: "Per 32-frame sequence",
     value: "4.2s",
     delta: "-0.6s vs last week",
     icon: Clock,
