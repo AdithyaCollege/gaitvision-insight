@@ -140,7 +140,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 );
               })}
 
-              <div className="mt-auto">
+              <div className="mt-auto shrink-0 pt-3">
                 {!collapsed && (
                   <div className="mb-3 rounded-lg border border-border bg-muted/50 p-3">
                     <p className="flex items-center gap-1.5 text-xs font-medium">
