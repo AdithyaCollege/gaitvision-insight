@@ -25,10 +25,15 @@ const data = Array.from({ length: 101 }, (_, i) => {
   return { frame: i, score: Number(Math.max(0.04, Math.min(1, base)).toFixed(3)) };
 });
 
-export function TemporalAttentionChart() {
+export function TemporalAttentionChart({ axisLabels = false }: { axisLabels?: boolean }) {
   return (
     <div className="relative h-56 w-full">
-      <div className="pointer-events-none absolute top-2 right-2 bottom-7 left-8 z-0 flex overflow-hidden rounded-sm">
+      <div
+        className={cn(
+          "pointer-events-none absolute top-2 right-2 z-0 flex overflow-hidden rounded-sm",
+          axisLabels ? "bottom-12 left-14" : "bottom-7 left-8",
+        )}
+      >
         {gaitPhases.map((p) => (
           <div
             key={p.name}
