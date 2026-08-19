@@ -196,7 +196,7 @@ function MetricsPage() {
               {services.map((s) => (
                 <div
                   key={s.name}
-                  className="flex items-start gap-3 rounded-xl border border-border p-3.5"
+                  className="flex flex-wrap items-start gap-3 rounded-xl border border-border p-3.5"
                 >
                   <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                     <s.icon className="size-4" />
@@ -204,6 +204,16 @@ function MetricsPage() {
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium">{s.name}</p>
                     <p className="truncate text-xs text-muted-foreground">{s.detail}</p>
+                    {s.tone !== "ok" && (
+                      <div className="mt-2.5 flex flex-wrap gap-2">
+                        <Button variant="outline" size="sm" className="h-7 px-2.5 text-xs">
+                          <ScrollText className="size-3.5" /> View Logs
+                        </Button>
+                        <Button variant="outline" size="sm" className="h-7 px-2.5 text-xs">
+                          <RotateCw className="size-3.5" /> Restart Instance
+                        </Button>
+                      </div>
+                    )}
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     <span className="flex items-center gap-1.5">
